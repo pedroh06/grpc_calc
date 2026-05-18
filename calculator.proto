@@ -11,6 +11,14 @@ message OperationResponse {
   double result = 1;
 }
 
+message OperationNumber {
+  double value = 1;
+}
+
 service Calculator {
-  rpc Sum(OperationRequest) returns (OperationResponse);
+  rpc Sum(OperationRequest)      returns (OperationResponse);
+  rpc Subtract(OperationRequest) returns (OperationResponse);
+  rpc Multiply(OperationRequest) returns (OperationResponse);
+  rpc Divide(OperationRequest)   returns (OperationResponse);
+  rpc SumStream(stream OperationNumber) returns (OperationResponse);
 }
